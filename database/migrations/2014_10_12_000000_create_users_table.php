@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->enum('status',['active', 'inactive', 'free', 'temp'])->fefault('active');
+            $table->enum('rol',['admin','seeker','provider']);
             $table->rememberToken();
             $table->timestamps();
         });
